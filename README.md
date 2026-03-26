@@ -1,34 +1,43 @@
-# Discovery-Led SDD
+# 4D Loops
 
-> **Status:** Work in progress — v0.1  
-> **Last updated:** 2026-03-22
+> **Status:** Work in progress — v0.2
+> **Last updated:** 2026-03-27
 
 ---
 
 ## What this is
 
-A product development workflow for small, AI-assisted teams that connects continuous discovery, compressed design sprints, and spec-driven development (SDD) into a single operating model.
+4D Loops
+- **Discovery** - validates that a problem exists
+- **Design** - Validates which solution to pursue
+- **Development** - Builds the hypothesised solution
+- **Diagnosis** - Validates that the change had the intended outcome
+
+This is a product development workflow for AI-assisted teams, that connects continuous discovery, compressed design sprints, and spec-driven development (SDD) into a single operating model.
 
 Most SDD tooling starts at the spec. This workflow starts at the problem. The premise is simple: AI has made building fast enough that the bottleneck has shifted upstream. The waste is no longer in development — it's in building the wrong thing quickly.
 
 This workflow is designed to be used by humans and AI agents alike. The artefact schemas are structured so that any capable agent can orient, validate, challenge, and consume them without a bespoke prompt each session.
 
-**What it is not:** a prescription for how to build software. Loop 3 — the build cycle — is intentionally left open. Different teams work differently, and this workflow does not prescribe spec format, agent orchestration, or tooling choices. It ends at the Design Brief. What happens next is yours.
+**What it is not:** a prescription for how to build software. Loop 3 — the build cycle — is intentionally left open. Different teams work differently, and this workflow does not prescribe spec format, agent orchestration, or tooling choices. What happens in Loop 3 and how you measure Loop 4 is yours to define.
 
 ---
 
 ## How it works
 
-Three loops, running in sequence for any given problem:
+Four loops, running in sequence for any given problem:
 
-**Loop 1 — Continuous Discovery**  
+**Loop 1 — Continuous Discovery**
 Surface and validate real problems worth solving. Human-led interviews and signal collection, AI-assisted synthesis. Output: a validated Problem Brief.
 
-**Loop 2 — Design Sprint (compressed)**  
-Identify and validate the best solution direction. What used to take five days now takes one, sometimes two. Output: a Design Brief with tested concept, documented decisions, and rejected directions.
+**Loop 2 — Design Sprint (compressed)**
+Identify and validate the best solution direction. What used to take five days now takes one, sometimes two. Output: a Design Brief with tested concept, documented decisions, rejected directions, and defined feedback instrumentation requirements.
 
-**Loop 3 — BYO SDD Build Cycle**  
-Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling.
+**Loop 3 — BYO SDD Build Cycle**
+Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling. One requirement applies regardless: ship instrumented. All `[FEEDBACK]` acceptance criteria defined in the Design Brief must be confirmed firing before ship.
+
+**Loop 4 — Diagnosis**
+*To be documented.* Use the instrumentation specified in Loops 2 and 3 to assess whether the change had the intended outcome, and route findings back to the relevant loop — either refining the solution (Loop 3), reconsidering the design direction (Loop 2), or surfacing a new or updated problem (Loop 1).
 
 Three radiators sit above the whole system and are always current:
 
@@ -70,9 +79,6 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
 **System**
 - [ ] Agent onboarding prompt — single document an AI agent reads at session start to understand the workflow, its role, and which artefacts to look for
 - [ ] Version and status conventions — operational definitions for `draft`, `approved`, `superseded` across all artefacts
-
-**Other**
-- [ ] Name — working title is "Discovery-Led SDD"; needs a decision before public sharing
 
 ---
 
