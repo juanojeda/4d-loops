@@ -56,7 +56,7 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
     ├── radiator-opportunity-map.md    ← Opportunity Map
     ├── radiator-decision-log.md       ← Decision Log (append-only)
     ├── template-design-brief.md       ← Design Brief (Loop 2 output)
-    └── template-problem-statement.md  ← Problem Statement (Loop 1 input)
+    └── template-problem-brief.md      ← Problem Brief (Loop 1 output)
 ```
 
 ---
@@ -64,7 +64,6 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
 ## What's still to come
 
 **Templates**
-- [ ] Problem Brief — Loop 1 output, input to validation gate (problem statement template included)
 - [ ] Decision Frame — used inside Loop 2, standalone reusable template
 - [ ] Adapter Guide — maps Design Brief fields to your chosen spec tool; first example using Spec Kit
 
