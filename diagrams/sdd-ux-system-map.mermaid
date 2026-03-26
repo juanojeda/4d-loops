@@ -1,0 +1,131 @@
+flowchart TD
+    %% ── RADIATORS (ambient — not a step) ───────────────────────
+    subgraph RAD["☀️  RADIATORS  —  always visible, always current"]
+        direction LR
+        NS["North Star<br/>+ Outcome Metrics"]
+        OM["Opportunity Map"]
+        DL["Decision Log"]
+    end
+
+    %% ── ENTRY POINTS ────────────────────────────────────────────
+    subgraph ENTRY_GROUP["Entry points"]
+        direction TB
+        ENTRY{"Where are we<br/>starting from?"}
+        ENTRY -->|"Unknown problem"| L1
+        ENTRY -->|"Known problem"| PBVAL
+        ENTRY -->|"Preformed solution<br/>based on assumption"| REFRAME
+    end
+
+    RAD -.->|"always referenced"| ENTRY_GROUP
+
+    %% ── REFRAME PATH ────────────────────────────────────────────
+    REFRAME{"Is the underlying<br/>problem understood?"}
+    REFRAME -->|"No"| L1
+    REFRAME -->|"Yes"| RISKLOG
+
+    %% ── LOOP 1: CONTINUOUS DISCOVERY ───────────────────────────
+    subgraph L1["🔍  LOOP 1  —  Continuous Discovery"]
+        direction TB
+        INT["User interviews<br/>+ signals<br/>(human-led)"]
+        SYN["AI synthesis<br/>(patterns + opportunities)"]
+        PBD["Problem Brief<br/>(draft)"]
+        PBS["Problem Brief<br/>✅ approved"]
+        INT --> SYN --> PBD --> PBS
+    end
+
+    %% ── PROBLEM BRIEF VALIDATION ────────────────────────────────
+    PBS --> PBVAL
+    PBVAL{"Problem Brief<br/>validation<br/>① External source cited?<br/>② Framed as user problem?<br/>③ Confirmed by someone<br/>who experiences it?"}
+
+    PBVAL -->|"Pass"| GATE_SIZE
+    PBVAL -->|"Fail — fix gaps"| INT
+    PBVAL -->|"Fail — proceed anyway<br/>(conscious risk)"| RISKLOG
+
+    %% ── RISK LOG (shared node) ──────────────────────────────────
+    RISKLOG["⚠️  Risk log entry<br/>Name assumption · Define signal<br/>Set checkpoint · Flag UNVALIDATED"]
+    RISKLOG -.->|"update"| DL
+    RISKLOG --> GATE_SIZE
+
+    %% ── GATE 1: SIZING ──────────────────────────────────────────
+    GATE_SIZE{"Gate 1 — Sizing<br/>How much does this warrant?"}
+    GATE_SIZE -->|"Large — decompose first"| PBD
+    GATE_SIZE -->|"Small or Medium"| GATE_CONF
+
+    %% ── GATE 2: SOLUTION CONFIDENCE ────────────────────────────
+    GATE_CONF{"Gate 2 — Solution confidence<br/>Evidence for the specific risk?"}
+    GATE_CONF -->|"Low confidence"| L2
+    GATE_CONF -->|"High + validated evidence"| HANDOFF
+    GATE_CONF -->|"High — no evidence<br/>(stress-test only)"| STRESS
+
+    STRESS["Short sprint ~1hr<br/>Decision Frame + AI challenge<br/>+ rejected alternatives"]
+    STRESS -.->|"update"| DL
+    STRESS --> HANDOFF
+
+    %% ── LOOP 2: DESIGN SPRINT ───────────────────────────────────
+    subgraph L2["⚡  LOOP 2  —  Design Sprint  (compressed)"]
+        direction TB
+        DF["Write Decision Frame"]
+        SK["Concept generation<br/>(human + AI)"]
+        EV["Structured evaluation<br/>per concept"]
+        CH["AI challenge pass"]
+        CALL["Make the call<br/>→ Decision Log entry"]
+        PROTO["Build stimulus<br/>(AI-assisted prototype)"]
+        TEST["Test with real users<br/>(min. 3–5)"]
+        DB["Design Brief<br/>✅ approved"]
+        DF --> SK --> EV --> CH --> CALL --> PROTO --> TEST --> DB
+    end
+
+    DB --> HANDOFF
+    CALL -.->|"update"| DL
+    DB -.->|"update"| OM
+
+    %% ── SDD HANDOFF ─────────────────────────────────────────────
+    subgraph BOUNDARY["🔌  SDD Handoff  —  workflow boundary"]
+        direction LR
+        HANDOFF["Design Brief<br/>handed off here"]
+        ADAPTER["Adapter Guide<br/>(team-defined mapping)"]
+        HANDOFF --> ADAPTER
+    end
+
+    %% ── LOOP 3: BYO BUILD ───────────────────────────────────────
+    subgraph L3["🏗️  LOOP 3  —  BYO SDD Build Cycle"]
+        direction TB
+        SPEC["Spec<br/>(format: team-defined)"]
+        BUILD["AI-assisted build"]
+        SHIP["Ship — instrumented<br/>functional ACs ✓<br/>FEEDBACK ACs ✓<br/>signals confirmed in staging ✓"]
+        SPEC --> BUILD --> SHIP
+    end
+
+    ADAPTER --> SPEC
+
+    %% ── FEEDBACK LOOP ───────────────────────────────────────────
+    SHIP -.->|"update"| OM
+    SHIP --> LEARN
+
+    LEARN{"Loop closed?"}
+    LEARN -->|"Metrics moved — done"| OM
+    LEARN -->|"Metrics flat —<br/>reframe problem"| L1
+    LEARN -->|"Concept needs iteration"| L2
+    LEARN -->|"UNVALIDATED checkpoint<br/>reached"| PBVAL
+
+    %% ── RADIATOR UPDATES ────────────────────────────────────────
+    PBS -.->|"update"| OM
+
+    %% ── STYLES ──────────────────────────────────────────────────
+    classDef loop1    fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    classDef loop2    fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef loop3    fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef radiator fill:#fef9c3,stroke:#ca8a04,color:#713f12
+    classDef gate     fill:#fff7ed,stroke:#ea580c,color:#431407
+    classDef risk     fill:#fef2f2,stroke:#dc2626,color:#450a0a
+    classDef boundary fill:#f1f5f9,stroke:#475569,color:#0f172a
+    classDef stress   fill:#fce7f3,stroke:#db2777,color:#500724
+
+    class INT,SYN,PBD,PBS loop1
+    class DF,SK,EV,CH,CALL,PROTO,TEST,DB loop2
+    class SPEC,BUILD,SHIP loop3
+    class NS,OM,DL radiator
+    class ENTRY,REFRAME,LEARN,GATE_SIZE,GATE_CONF,PBVAL gate
+    class RISKLOG risk
+    class HANDOFF,ADAPTER boundary
+    class STRESS stress

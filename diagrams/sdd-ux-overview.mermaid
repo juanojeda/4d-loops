@@ -1,0 +1,62 @@
+flowchart TD
+    %% ── RADIATORS ───────────────────────────────────────────────
+    subgraph RAD["☀️  Radiators  —  always current"]
+        direction LR
+        NS["North Star<br/>+ Outcome Metrics"]
+        OM["Opportunity Map"]
+        DL["Decision Log"]
+    end
+
+    %% ── ENTRY ───────────────────────────────────────────────────
+    ENTRY["Entry point<br/>(see detail diagram)"]
+    RAD -.->|"always referenced"| ENTRY
+
+    %% ── LOOPS ───────────────────────────────────────────────────
+    L1["🔍  Loop 1<br/>Continuous Discovery<br/>─────────────────<br/>Interviews + signals<br/>AI synthesis<br/>Problem Brief"]
+
+    PBVAL["Problem Brief<br/>validation + gates<br/>(see detail diagram)"]
+
+    L2["⚡  Loop 2<br/>Design Sprint<br/>─────────────────<br/>Decision Frame<br/>Concepts + evaluation<br/>AI challenge pass<br/>Prototype + test<br/>Design Brief"]
+
+    BOUNDARY["🔌  SDD Handoff<br/>─────────────────<br/>Design Brief out<br/>Adapter Guide<br/>Spec tool in"]
+
+    L3["🏗️  Loop 3<br/>BYO SDD Build<br/>─────────────────<br/>Spec (team-defined)<br/>AI-assisted build<br/>Ship instrumented"]
+
+    LEARN{"Loop closed?"}
+
+    %% ── MAIN FLOW ───────────────────────────────────────────────
+    ENTRY --> L1
+    ENTRY -->|"known problem"| PBVAL
+    L1 --> PBVAL
+    PBVAL -->|"validated"| L2
+    PBVAL -->|"high confidence +<br/>evidence → skip sprint"| BOUNDARY
+    L2 --> BOUNDARY
+    BOUNDARY --> L3
+    L3 --> LEARN
+
+    %% ── FEEDBACK ────────────────────────────────────────────────
+    LEARN -->|"done"| OM
+    LEARN -->|"reframe"| L1
+    LEARN -->|"iterate"| L2
+    LEARN -->|"unvalidated<br/>checkpoint"| PBVAL
+
+    %% ── RADIATOR UPDATES ────────────────────────────────────────
+    L1 -.->|"update"| OM
+    L2 -.->|"update"| OM
+    L2 -.->|"update"| DL
+    L3 -.->|"update"| OM
+
+    %% ── STYLES ──────────────────────────────────────────────────
+    classDef loop1    fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    classDef loop2    fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef loop3    fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef radiator fill:#fef9c3,stroke:#ca8a04,color:#713f12
+    classDef gate     fill:#fff7ed,stroke:#ea580c,color:#431407
+    classDef boundary fill:#f1f5f9,stroke:#475569,color:#0f172a
+
+    class L1 loop1
+    class L2 loop2
+    class L3 loop3
+    class NS,OM,DL radiator
+    class ENTRY,PBVAL,LEARN gate
+    class BOUNDARY boundary
