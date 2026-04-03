@@ -73,8 +73,7 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
     ├── radiator-opportunity-map.md        ← Opportunity Map
     ├── radiator-decision-log.md           ← Decision Log (append-only)
     ├── template-design-brief.md           ← Design Brief (Loop 2 output)
-    ├── template-problem-brief.md          ← Problem Brief (Loop 1 output)
-    └── template-problem-statement.md      ← Problem Statement reference
+    └── template-problem-statement.md      ← Problem Statement (Loop 1 input)
 ```
 
 Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conventions/folder-structure.md` for the structure and ID conventions.
@@ -84,6 +83,7 @@ Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conv
 ## What's still to come
 
 **Templates**
+* [ ] Problem Brief — Loop 1 output; wraps the problem statement with supporting evidence, sizing, metadata, and everything Loop 2 needs to begin
 * [ ] Decision Frame — used inside Loop 2, standalone reusable template
 * [ ] Adapter Guide — maps Design Brief fields to your chosen spec tool; first example using Spec Kit
 
