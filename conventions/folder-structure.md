@@ -25,12 +25,12 @@ This document defines the folder structure and ID conventions for the `.loops/` 
 └── _problems/
     ├── _archive/                    ← superseded problems, folder intact
     │   └── 001-photo-memories/
-    │       ├── problem-brief.md
+    │       ├── discovery-output.md
     │       └── SUPERSEDED.md        ← points to superseding problem
     └── 002-memory-overwhelm/
-        ├── problem-brief.md
+        ├── discovery-output.md
         └── 002.1-card-game/
-            ├── design-brief.md
+            ├── design-output.md
             └── 002.1.1-[tbd]/       ← implementation layer, contents TBD
                 └── [tbd]
 ```
@@ -50,7 +50,7 @@ The four subfolders reflect the maturity of discovery work, following the data �
 | `_findings/` | Patterns identified across multiple data points | Patterned, not yet interpreted |
 | `_insights/` | Interpreted findings — what the pattern means in context | Ready to ground a problem statement |
 
-A problem brief references the insights that informed it. It does not own them.
+A discovery output references the insights that informed it. It does not own them.
 
 ---
 

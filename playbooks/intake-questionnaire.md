@@ -13,11 +13,11 @@ Use this whenever you pick up work and aren't sure where you are or where to sta
 
 ## Q2. What is the status of the most recent artefact in that folder?
 
-- **Problem brief — draft or in progress** → you're mid-framing. Go to Q6.
-- **Problem brief — complete, unvalidated** → you've taken a conscious risk. Check the risk log entry for the validation checkpoint. If the checkpoint has been reached, go to Q6. If not, go to Q9.
-- **Problem brief — complete, validated** → go to Q9.
-- **Design brief — in progress** → you're mid-sprint. Go to Q10.
-- **Design brief — complete** → go to Q12.
+- **Discovery output — draft or in progress** → you're mid-framing. Go to Q6.
+- **Discovery output — complete, unvalidated** → you've taken a conscious risk. Check the risk log entry for the validation checkpoint. If the checkpoint has been reached, go to Q6. If not, go to Q9.
+- **Discovery output — complete, validated** → go to Q9.
+- **Design output — in progress** → you're mid-sprint. Go to Q10.
+- **Design output — complete** → go to Q12.
 - **Implementation folder exists** → check your SDD tooling for build status. If shipped, go to Q14. If in progress, continue in Loop 3.
 - **Not sure** → read the most recent file in the folder and the last Decision Log entry referencing this problem. Then come back and answer Q2 again.
 
@@ -58,7 +58,7 @@ By confirmed — they said it unprompted, analytics show a supporting behaviour,
 Can you state who experiences this, under what conditions, and what it costs them?
 
 - **Yes, clearly** → go to Q7.
-- **Started but not complete** → continue drafting the problem brief. Use the problem statement template. Come back when you can answer yes. **Stop here.**
+- **Started but not complete** → continue drafting the discovery output. Use the problem hypothesis template. Come back when you can answer yes. **Stop here.**
 - **Not yet** → your insight may be too broad or not tied to a specific person and situation. Refine before proceeding. **Stop here.**
 
 ---
@@ -68,7 +68,7 @@ Can you state who experiences this, under what conditions, and what it costs the
 Check `_index.md` and `_problems/`.
 
 - **Yes, existing problem folder** → is the framing still accurate?
-  - Still accurate → reference your insight from the existing problem brief. Go to Q8.
+  - Still accurate → reference your insight from the existing discovery output. Go to Q8.
   - Shifted → create a new problem framing. Mark the existing one as superseded. Go to Q8.
 - **No** → create a new problem folder. Assign the next available ID. Add to `_index.md`. Go to Q8.
 
@@ -76,9 +76,9 @@ Check `_index.md` and `_problems/`.
 
 ## Q8. Do you have evidence to validate this problem framing?
 
-- **Yes — external source cited, framed as user problem, confirmed by someone who experiences it** → approve the problem brief. Go to Q9.
+- **Yes — external source cited, framed as user problem, confirmed by someone who experiences it** → approve the discovery output. Go to Q9.
 - **Partially — some evidence but gaps remain** → continue research. Come back when evidence is complete. **Stop here.**
-- **No — proceeding on assumption** → log a risk entry. Flag the brief as UNVALIDATED. Define your validation signal and set a review checkpoint. Go to Q9.
+- **No — proceeding on assumption** → log a risk entry. Flag the discovery output as UNVALIDATED. Define your validation signal and set a review checkpoint. Go to Q9.
 
 ---
 
@@ -102,14 +102,14 @@ Check `_index.md` and `_problems/`.
 
 ## Q11. What did testing tell you?
 
-- **Concept validated — users understood it and it addressed the problem** → complete the design brief. Go to Q12.
-- **Concept partially validated — some things worked, some didn't** → iterate the design and retest, or document the uncertainty in the design brief with confidence level noted. Go to Q12.
+- **Concept validated — users understood it and it addressed the problem** → complete the design output. Go to Q12.
+- **Concept partially validated — some things worked, some didn't** → iterate the design and retest, or document the uncertainty in the design output with confidence level noted. Go to Q12.
 - **Concept invalidated — wrong direction** → return to concept generation. The problem framing may also need revisiting. Go to Q9.
 - **Not enough signal** → run more sessions or recruit different participants. **Stop here.**
 
 ---
 
-## Q12. Is the design brief complete?
+## Q12. Is the design output complete?
 
 Check all sections are filled, including:
 
@@ -121,13 +121,13 @@ Check all sections are filled, including:
 - [ ] Open questions resolved
 
 - **Yes, all complete** → go to Q13.
-- **No, gaps remain** → resolve them before proceeding. A spec built on an incomplete brief produces the wrong thing. **Stop here.**
+- **No, gaps remain** → resolve them before proceeding. A spec built on an incomplete design output produces the wrong thing. **Stop here.**
 
 ---
 
 ## Q13. Are you ready to build?
 
-- [ ] Design brief approved
+- [ ] Design output approved
 - [ ] Adapter Guide ready for your chosen SDD tooling
 - [ ] Feedback instrumentation requirements mapped to `[FEEDBACK]` ACs in the spec
 
@@ -162,7 +162,7 @@ Not all checked → resolve the gaps first.
 | Have a candidate solution, untested | Q9 |
 | Mid-sprint | Q10 |
 | Post-test, deciding whether to proceed | Q11 |
-| Have a validated design brief | Q12 |
+| Have a validated design output | Q12 |
 | Ready to build | Q13 |
 | Shipped, reviewing outcomes | Q14 |
 | Have a preformed solution, no problem | Q3 |

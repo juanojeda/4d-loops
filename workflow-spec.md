@@ -39,9 +39,9 @@ There are four ways a piece of work enters the system:
 
 **Unknown problem** — we've identified a signal or area of interest but don't have a clear problem statement yet. Enter at Loop 1.
 
-**Known problem, unknown solution** — we have a validated problem but don't know what to build. Enter at Problem Brief validation.
+**Known problem, unknown solution** — we have a validated problem but don't know what to build. Enter at Discovery Output validation.
 
-**Known problem, known solution (validated)** — we have both a problem and a solution direction backed by evidence. Enter at Problem Brief validation to confirm the brief meets the bar before proceeding.
+**Known problem, known solution (validated)** — we have both a problem and a solution direction backed by evidence. Enter at Discovery Output validation to confirm the output meets the bar before proceeding.
 
 **Preformed solution based on assumption** — someone (internally or externally) has arrived with a solution before the problem has been validated. This is the most common failure mode in product work. See the section below on handling this path.
 
@@ -53,7 +53,7 @@ When work arrives as a solution rather than a problem, do not take it straight i
 
 The first step is to reframe: what problem does this solution assume exists? Once you have a problem hypothesis, ask whether the problem is actually understood.
 
-**If yes** — you have enough to write a Problem Brief, but it's unvalidated. Log the assumption risk (see Risk log entries below) and proceed to Problem Brief validation with the brief flagged as UNVALIDATED.
+**If yes** — you have enough to write a Discovery Output, but it's unvalidated. Log the assumption risk (see Risk log entries below) and proceed to Discovery Output validation with the output flagged as UNVALIDATED.
 
 **If no** — the problem needs discovery work before anything else. Enter Loop 1 and treat the proposed solution as a possible direction to revisit later, not a starting point.
 
@@ -61,7 +61,7 @@ The first step is to reframe: what problem does this solution assume exists? Onc
 
 ## Loop 1 — Continuous Discovery
 
-**Purpose:** Produce a validated Problem Brief.
+**Purpose:** Produce a validated Discovery Output.
 
 **Who leads it:** Humans. AI assists with synthesis, not with conducting research.
 
@@ -71,15 +71,15 @@ User interviews and signal collection (analytics, support tickets, session recor
 
 AI earns its keep in synthesis. Feed transcripts and signals in as they arrive. Use AI to surface patterns, flag contradictions, and frame opportunities. Synthesis that used to take days now takes minutes. The output is a living Opportunity Map, not a slow-moving backlog.
 
-A Problem Brief is drafted when a problem is worth articulating. It is approved when it can answer: who experiences this, under what conditions, and what does it cost them.
+A Discovery Output is drafted when a problem is worth articulating. It is approved when it can answer: who experiences this, under what conditions, and what does it cost them.
 
-**Output:** Problem Brief (approved)
+**Output:** Discovery Output (approved)
 
 ---
 
-## Problem Brief validation
+## Discovery Output validation
 
-Before any Problem Brief proceeds to the gates — regardless of how it was produced — it must pass a three-question check:
+Before any Discovery Output proceeds to the gates — regardless of how it was produced — it must pass a three-question check:
 
 1. Is there at least one external source cited (user, data, research) that didn't come from inside the building?
 2. Is the problem framed in terms of user experience or outcome, not solution or feature?
@@ -88,6 +88,7 @@ Before any Problem Brief proceeds to the gates — regardless of how it was prod
 **Pass** → proceed to Gate 1.
 
 **Fail — fix the gaps** → return to Loop 1 with the specific gaps identified. Don't restart from scratch; target the missing evidence.
+
 
 **Fail — proceed anyway (conscious risk)** → this is a legitimate path for teams moving fast on a strong hunch or testing a market quickly. It requires a Risk log entry before proceeding. See below.
 
@@ -103,9 +104,9 @@ A Risk log entry must contain:
 - **The validation signal:** what specific evidence would confirm or refute this assumption, and by when?
 - **The review checkpoint:** a specific trigger (date, metric, or event) at which we will either validate the assumption or make another conscious decision about it.
 
-Once logged, the Problem Brief is flagged as UNVALIDATED. This flag travels with the work through all downstream artefacts. Every agent and human working on it can see the debt that's been taken on.
+Once logged, the Discovery Output is flagged as UNVALIDATED. This flag travels with the work through all downstream artefacts. Every agent and human working on it can see the debt that's been taken on.
 
-When the review checkpoint is reached, the feedback loop routes back to Problem Brief validation. You either validate the problem at that point or make another explicit decision.
+When the review checkpoint is reached, the feedback loop routes back to Discovery Output validation. You either validate the problem at that point or make another explicit decision.
 
 ---
 
@@ -151,7 +152,7 @@ Evidence is valid when it reduces the risk of the specific decision you're makin
 
 ## Loop 2 — Design Sprint (compressed)
 
-**Purpose:** Produce a validated Design Brief with a tested solution direction.
+**Purpose:** Produce a validated Design Output with a tested solution direction.
 
 **Timescale:** A day, sometimes two for complex problems. Not five days.
 
@@ -203,20 +204,20 @@ If medium or low — what would increase confidence?
 
 **Test with real users.** Minimum 3–5 people. AI can assist with analysis after sessions, but the sessions themselves are human-led. Synthetic personas are useful for pre-validating logic and catching obvious failures before you recruit, but they do not replace real users.
 
-**Output:** Design Brief (approved), including all rejected directions and their reasoning. The rejected directions section is required. It is load-bearing — it tells downstream agents which approaches are off the table and why.
+**Output:** Design Output (approved), including all rejected directions and their reasoning. The rejected directions section is required. It is load-bearing — it tells downstream agents which approaches are off the table and why.
 
 ---
 
 ## SDD Handoff — workflow boundary
 
-This workflow ends at the Design Brief. What happens next — how the spec is written, how agents are structured, how tasks are tracked — is the responsibility of the team's chosen SDD tooling.
+This workflow ends at the Design Output. What happens next — how the spec is written, how agents are structured, how tasks are tracked — is the responsibility of the team's chosen SDD tooling.
 
 The boundary is intentional. Different teams work differently, and the build loop is the most variable and opinionated part of the SDLC. This workflow does not prescribe it.
 
 **What the workflow is responsible for:**
 - A validated problem (or an explicitly flagged unvalidated one)
 - A tested solution direction with documented reasoning
-- A Design Brief complete enough that any capable spec tool can consume it without the author present to explain it
+- A Design Output complete enough that any capable spec tool can consume it without the author present to explain it
 
 **What the workflow is not responsible for:**
 - Spec format or structure
@@ -226,13 +227,13 @@ The boundary is intentional. Different teams work differently, and the build loo
 
 ### The interface contract
 
-For the handoff to work, the Design Brief must be complete. A spec tool receiving an incomplete brief will either produce a bad spec or stall waiting for information that should have been captured upstream.
+For the handoff to work, the Design Output must be complete. A spec tool receiving an incomplete output will either produce a bad spec or stall waiting for information that should have been captured upstream.
 
-The minimum the Design Brief must contain for any SDD tool to consume it:
+The minimum the Design Output must contain for any SDD tool to consume it:
 
 | Field | Why it's required |
 |---|---|
-| Validated problem statement | Grounds the spec in a real user need |
+| Validated problem hypothesis | Grounds the spec in a real user need |
 | User and context | Constrains scope and informs acceptance criteria |
 | Chosen concept summary | Defines what is being built |
 | Key decisions + reasoning | Tells the spec tool what's already been decided |
@@ -245,7 +246,7 @@ The minimum the Design Brief must contain for any SDD tool to consume it:
 
 ### Adapter Guide
 
-Each team maintains an Adapter Guide — a short document that maps Design Brief fields to their chosen spec format. This is written once when the team adopts the workflow and updated when the spec format changes.
+Each team maintains an Adapter Guide — a short document that maps Design Output fields to their chosen spec format. This is written once when the team adopts the workflow and updated when the spec format changes.
 
 The Adapter Guide lives at `/docs/adapter-guide.md` and is not part of the core workflow. See the Adapter Guide template for the Spec Kit example.
 
@@ -255,14 +256,14 @@ The Adapter Guide lives at `/docs/adapter-guide.md` and is not part of the core 
 
 **Format:** Team-defined. This workflow does not prescribe the build process.
 
-The quality of the build loop is almost entirely determined by the quality of what enters it. A complete, well-reasoned Design Brief produces a good spec. A vague or incomplete brief produces technically correct code that solves the wrong problem. The handoff contract above is what makes the boundary clean.
+The quality of the build loop is almost entirely determined by the quality of what enters it. A complete, well-reasoned Design Output produces a good spec. A vague or incomplete output produces technically correct code that solves the wrong problem. The handoff contract above is what makes the boundary clean.
 
 One requirement that applies regardless of tooling: **ship instrumented.**
 
 Done-to-ship requires all three of the following, not just functional completion:
 
 - All functional acceptance criteria pass
-- All `[FEEDBACK]` acceptance criteria pass — these are defined in the Design Brief (Section 8) and carried into the spec as typed ACs
+- All `[FEEDBACK]` acceptance criteria pass — these are defined in the Design Output (Section 8) and carried into the spec as typed ACs
 - Feedback signals are confirmed firing in staging before ship
 
 A spec with no `[FEEDBACK]` ACs is incomplete. A build that ships without confirmed instrumentation has broken the feedback loop by design — the team will be unable to close the loop regardless of what the workflow says.
@@ -283,7 +284,7 @@ After shipping, monitor outcome metrics against what was expected when the probl
 
 **Concept needs iteration** → the solution direction is right but the execution needs work. Return to Loop 2 with the test data.
 
-**UNVALIDATED brief — checkpoint reached** → a risk log checkpoint has been triggered. Return to Problem Brief validation and either validate the assumption with real evidence or make another explicit decision about how to proceed.
+**UNVALIDATED brief — checkpoint reached** → a risk log checkpoint has been triggered. Return to Discovery Output validation and either validate the assumption with real evidence or make another explicit decision about how to proceed.
 
 ---
 
@@ -314,7 +315,7 @@ AI agents entering this workflow should be able to do four things with any artef
 Key rules for agents:
 
 - A brief flagged UNVALIDATED means assumptions must be treated as hypotheses, not facts. Flag them in any downstream artefact you produce.
-- The rejected directions section of a Design Brief is not optional reading. It defines the boundaries of the solution space.
+- The rejected directions section of a Design Output is not optional reading. It defines the boundaries of the solution space.
 - Never make a routing decision (which loop, which gate exit) without recording it in the Decision Log.
 - If a required field is missing or a confidence level is low with no supporting evidence, surface it explicitly before proceeding. Do not paper over gaps.
 
@@ -324,13 +325,13 @@ Key rules for agents:
 
 | Artefact | Produced by | Consumed by | Required fields |
 |---|---|---|---|
-| Problem Brief | Loop 1 / direct entry | Problem Brief validation | Problem statement, evidence, sizing |
+| Discovery Output | Loop 1 / direct entry | Discovery Output validation | Problem hypothesis, evidence, sizing |
 | Risk log entry | Validation gate / reframe path | Decision Log | Assumption, validation signal, checkpoint |
 | Decision Frame | Loop 2 (start) | Loop 2 evaluation | Problem, user, success outcome, constraints |
-| Decision Log entry | Loop 2 (call) / stress-test | Design Brief, Spec | Chosen, reason, runner-up, rejected |
-| Design Brief | Loop 2 | Loop 3 Spec | Concept summary, decisions, rejected directions, validation evidence |
+| Decision Log entry | Loop 2 (call) / stress-test | Design Output, Spec | Chosen, reason, runner-up, rejected |
+| Design Output | Loop 2 | Loop 3 Spec | Concept summary, decisions, rejected directions, validation evidence |
 | Spec | Team's SDD tooling (via Adapter Guide) | Build agents | Format team-defined — see Adapter Guide |
-| Adapter Guide | Team (one-time setup) | Spec authors, build agents | Design Brief field mappings, spec format reference |
+| Adapter Guide | Team (one-time setup) | Spec authors, build agents | Design Output field mappings, spec format reference |
 
 Full artefact templates are in `/docs/templates/`.
 

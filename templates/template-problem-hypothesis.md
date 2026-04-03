@@ -1,6 +1,6 @@
-# Problem Statement Template
+# Problem Hypothesis Template
 
-A problem statement describes a real human situation where something isn't working. It is written before any solution is considered. If your statement implies a feature, a product, or a technology, rewrite it.
+A problem hypothesis describes a real human situation where something isn't working. It is written before any solution is considered. If your hypothesis implies a feature, a product, or a technology, rewrite it.
 
 ---
 
@@ -10,14 +10,14 @@ A problem statement describes a real human situation where something isn't worki
 2. **Describe a real situation, not an assumed one.** The problem should come from research or direct observation — not from what you think users experience.
 3. **Separate the problem from the solution.** If the statement could double as a brief for a specific feature, it's too narrow.
 4. **Include the cost of the problem.** A problem without consequence has no urgency. Show what's at stake if nothing changes.
-5. **Show your evidence.** A problem statement without a source is an assumption. State what you observed, how you observed it, and how often — so anyone reading it can judge how much weight to give it.
+5. **Show your evidence.** A problem hypothesis without a source is an assumption. State what you observed, how you observed it, and how often — so anyone reading it can judge how much weight to give it.
 6. **Make it testable.** You should be able to look at a finished design and ask: did this solve the problem as stated?
 
 ---
 
 ## Criteria
 
-A strong problem statement answers all five of the following:
+A strong problem hypothesis answers all five of the following:
 
 | Dimension            | Question to answer                                         | Warning signs                                                           |
 | -------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ Provenance answers three questions:
 - **Who participated and when** — enough detail that someone else could assess the sample
 - **How often the pattern appeared** — a single observation is a data point; a pattern across multiple participants and methods is a finding; a finding interpreted in context is an insight
 
-A problem statement should be grounded at the insight level, not the data point level.
+A problem hypothesis should be grounded at the insight level, not the data point level.
 
 Further reading:
 - [Data vs. Findings vs. Insights — Nielsen Norman Group](https://www.nngroup.com/articles/data-findings-insights-differences/)

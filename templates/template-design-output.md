@@ -1,17 +1,17 @@
-# Design Brief
-**ID:** DB-[XXX]  
-**Status:** [draft | in-review | approved | superseded]  
-**Version:** [n]  
-**Created:** [date]  
-**Author:** [name]  
-**Source Problem Brief:** PB-[XXX]  
-**Source Decision Log entries:** DL-[XXX], DL-[XXX]  
-**Sprint ref:** Sprint-[XXX]  
-**Approved by:** [name]  
+# Design Output
+**ID:** DO-[XXX]
+**Status:** [draft | in-review | approved | superseded]
+**Version:** [n]
+**Created:** [date]
+**Author:** [name]
+**Source Discovery Output:** DO-[XXX]
+**Source Decision Log entries:** DL-[XXX], DL-[XXX]
+**Sprint ref:** Sprint-[XXX]
+**Approved by:** [name]
 **Approval date:** [date]
 
-> ⚠️ **UNVALIDATED** — this brief is based on an unvalidated problem assumption. See Risk log entry DL-[XXX]. Treat all problem-level claims as hypotheses, not facts.  
-> *(Remove this block if the Problem Brief passed validation.)*
+> ⚠️ **UNVALIDATED** — this output is based on an unvalidated problem assumption. See Risk log entry DL-[XXX]. Treat all problem-level claims as hypotheses, not facts.
+> *(Remove this block if the Discovery Output passed validation.)*
 
 ---
 
@@ -33,7 +33,7 @@
 | **Device / platform** | [where this will be used] |
 | **Prior context** | [what they've already done or know before reaching this point] |
 | **Goal** | [what they're trying to accomplish] |
-| **Current friction** | [what's getting in the way — links back to problem statement] |
+| **Current friction** | [what's getting in the way — links back to problem hypothesis] |
 
 ---
 
@@ -42,7 +42,7 @@
 *The frame used to evaluate concepts during the sprint. Included here so downstream agents understand what the solution is optimised for.*
 
 **Problem we're solving:**  
-[One sentence — should match the Problem Brief exactly.]
+[One sentence — should match the Discovery Output exactly.]
 
 **Success looks like:**  
 [Outcome, not feature. What would be measurably different for the user if this works?]
@@ -187,7 +187,7 @@ The following signals must be capturable after ship for the feedback loop to clo
 
 ## AI agent guidance
 
-When consuming this Design Brief:
+When consuming this Design Output:
 
 - **Section 5 (Key decisions)** defines what has already been decided. Do not revisit these without a new Decision Log entry.
 - **Section 6 (Rejected directions)** defines what is out of scope. Do not propose these approaches unless the conditions to revisit have been met.

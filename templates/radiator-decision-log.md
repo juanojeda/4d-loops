@@ -29,7 +29,7 @@ Each entry uses the following structure. Copy the template block and fill it in 
 Date: [date]
 Type: [problem selection | solution direction | risk accepted | question closed]
 Made by: [name]
-Refs: [Problem Brief ID / Sprint ID / other relevant artefact]
+Refs: [Discovery Output ID / Sprint ID / other relevant artefact]
 
 **Decision:**
 [One to two sentences. What was decided?]
@@ -55,7 +55,7 @@ For risk log entries (UNVALIDATED briefs proceeding), use this format instead:
 Date: [date]
 Type: risk accepted
 Made by: [name]
-Refs: [Problem Brief ID]
+Refs: [Discovery Output ID]
 
 **Assumption being accepted:**
 [What are we treating as true without validation?]

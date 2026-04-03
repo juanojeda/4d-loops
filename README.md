@@ -29,13 +29,13 @@ Designed to be used by humans and AI agents alike. The artefact schemas are stru
 Four loops, running in sequence for any given problem:
 
 **Loop 1 — Continuous Discovery**
-Surface and validate real problems worth solving. Human-led interviews and signal collection, AI-assisted synthesis. Output: a validated Problem Brief.
+Surface and validate real problems worth solving. Human-led interviews and signal collection, AI-assisted synthesis. Output: a validated Discovery Output.
 
 **Loop 2 — Design Sprint (compressed)**
-Identify and validate the best solution direction. What used to take five days now takes one, sometimes two. Output: a Design Brief with tested concept, documented decisions, rejected directions, and defined feedback instrumentation requirements.
+Identify and validate the best solution direction. What used to take five days now takes one, sometimes two. Output: a Design Output with tested concept, documented decisions, rejected directions, and defined feedback instrumentation requirements.
 
 **Loop 3 — BYO SDD Build Cycle**
-Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling. One requirement applies regardless: ship instrumented. All `[FEEDBACK]` acceptance criteria defined in the Design Brief must be confirmed firing before ship.
+Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling. One requirement applies regardless: ship instrumented. All `[FEEDBACK]` acceptance criteria defined in the Design Output must be confirmed firing before ship.
 
 **Loop 4 — Diagnosis**
 *To be documented.* Use the instrumentation specified in Loops 2 and 3 to assess whether the change had the intended outcome, and route findings back to the relevant loop — either refining the solution (Loop 3), reconsidering the design direction (Loop 2), or surfacing a new or updated problem (Loop 1).
@@ -72,8 +72,8 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
     ├── radiator-north-star.md             ← North Star + Outcome Metrics
     ├── radiator-opportunity-map.md        ← Opportunity Map
     ├── radiator-decision-log.md           ← Decision Log (append-only)
-    ├── template-design-brief.md           ← Design Brief (Loop 2 output)
-    └── template-problem-statement.md      ← Problem Statement (Loop 1 input)
+    ├── template-design-output.md          ← Design Output (Loop 2 output)
+    └── template-problem-hypothesis.md     ← Problem Hypothesis (Loop 1 input)
 ```
 
 Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conventions/folder-structure.md` for the structure and ID conventions.
@@ -83,9 +83,9 @@ Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conv
 ## What's still to come
 
 **Templates**
-* [ ] Problem Brief — Loop 1 output; wraps the problem statement with supporting evidence, sizing, metadata, and everything Loop 2 needs to begin
+* [ ] Discovery Output — Loop 1 output; wraps the problem hypothesis with supporting evidence, sizing, metadata, and everything Loop 2 needs to begin
 * [ ] Decision Frame — used inside Loop 2, standalone reusable template
-* [ ] Adapter Guide — maps Design Brief fields to your chosen spec tool; first example using Spec Kit
+* [ ] Adapter Guide — maps Design Output fields to your chosen spec tool; first example using Spec Kit
 
 **Playbooks**
 * [ ] From hunch to signal
