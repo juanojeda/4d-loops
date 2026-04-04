@@ -12,7 +12,11 @@ Tests for the five Slice 1 acceptance criteria. All tests are designed to be run
 bash tests/run-all.sh
 ```
 
-These tests check file existence and content structure. They fail until the Slice 1 deliverables are created.
+These check file existence and content structure. They fail until the Slice 1 deliverables are created.
+
+### AC1 — cold-start agent test (execution)
+
+See `tests/ac1-cold-start-agent/README.md`. Claude Code spawns a subagent in a temp directory that may only follow `INSTALL.md`, then asserts the expected `.loops/` structure was created. This tests that the instructions are actually followable, not just present.
 
 ### AC2 — agent scenario tests
 
@@ -26,7 +30,7 @@ In brief: Claude Code spawns a subagent for each of 13 fixture states, passes it
 
 | AC | Description | Test |
 |---|---|---|
-| AC1 | `INSTALL.md` enables cold-start setup without prior context | `ac1-install-cold-start.sh` |
+| AC1 | `INSTALL.md` enables cold-start setup without prior context | `ac1-install-cold-start.sh` (structure) + `ac1-cold-start-agent/` (execution) |
 | AC2 | Agent can navigate any valid workflow state to a "you are here, next step is X" response | `ac2-agent-state-routing/` |
 | AC3 | README describes all four loops with no placeholder stubs | `ac3-readme-loops.sh` |
 | AC4 | Distribution mechanism decision recorded in `INSTALL.md` | `ac4-distribution-decision.sh` |
