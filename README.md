@@ -38,7 +38,7 @@ Identify and validate the best solution direction. What used to take five days n
 Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling. One requirement applies regardless: ship instrumented. All `[FEEDBACK]` acceptance criteria defined in the Design Output must be confirmed firing before ship.
 
 **Loop 4 — Diagnosis**
-*To be documented.* Use the instrumentation specified in Loops 2 and 3 to assess whether the change had the intended outcome, and route findings back to the relevant loop — either refining the solution (Loop 3), reconsidering the design direction (Loop 2), or surfacing a new or updated problem (Loop 1).
+Use the instrumentation specified in Loops 2 and 3 to monitor outcome metrics and assess whether the change had the intended outcome. Four exits: problem solved (metrics moved), return to Loop 1 (metrics flat — reframe the problem), return to Loop 2 (solution direction right, execution needs work), or return to Discovery Output validation (UNVALIDATED checkpoint triggered). See `workflow-spec.md §The feedback loop` for routing logic.
 
 Three radiators sit above the whole system and are always current:
 
@@ -56,6 +56,8 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
 /
 ├── README.md                               ← you are here
 ├── workflow-spec.md                        ← full written model
+├── INSTALL.md                              ← how to get the workflow into a project
+├── agent-onboarding.md                     ← navigation protocol for AI agents
 │
 ├── diagrams/
 │   ├── sdd-ux-overview.mermaid             ← high-level overview (one node per loop)
@@ -66,7 +68,6 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
 │
 ├── playbooks/                             ← process guides and how-to references
 │   └── intake-questionnaire.md            ← where do I start? (self-serve intake)
-│   └── from-[x]-to-[y].md                 ← playbooks for next steps (see "what's still to come")
 │
 └── templates/
     ├── radiator-north-star.md             ← North Star + Outcome Metrics
@@ -97,9 +98,8 @@ Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conv
 * [ ] From build to diagnosis
 
 **System**
-* [ ] Agent onboarding prompt — single document an AI agent reads at session start to understand the workflow, its role, and which artefacts to look for
-* [ ] Loop 4 / Diagnosis — document the loop, define what signals to monitor and how to route findings back
-* [ ] Distribution mechanism — how does a team get the workflow files alongside their project? Options include copying files in, git submodule, or installable package. This affects how playbooks and templates are referenced from a project's `.loops/` folder. **Decision needed before playbooks can be linked from project artefacts.**
+* [ ] Loop 4 / Diagnosis — full loop with its own gates, templates, and structured outcome tracking (lightweight routing exists in `workflow-spec.md`; a complete loop is Slice 2+)
+* [ ] Distribution mechanism — git submodule and installable CLI evaluated against copy-files approach (see `INSTALL.md` for current decision)
 
 **Diagrams**
 * [ ] Update both diagrams to reflect the 4D framing and Loop 4 as a named loop
