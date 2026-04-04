@@ -1,0 +1,158 @@
+[
+  {
+    "id": "01",
+    "name": "no-loops-folder",
+    "fixture": "fixtures/01-no-loops-folder",
+    "description": "A brand new project with no .loops/ folder. The team has never used 4D Loops before.",
+    "expected": {
+      "must_identify_state": "no .loops/ folder",
+      "must_recommend_action": "run INSTALL.md setup to create .loops/ folder",
+      "must_mention": ["INSTALL.md", "intake questionnaire"],
+      "must_not_recommend": ["Gate 1", "design sprint", "Loop 2", "Loop 3", "Loop 4", "discovery output"]
+    }
+  },
+  {
+    "id": "02",
+    "name": "empty-index",
+    "fixture": "fixtures/02-empty-index",
+    "description": ".loops/ folder exists and _index.md is present but has no active work items.",
+    "expected": {
+      "must_identify_state": "no active problems",
+      "must_recommend_action": "start at the intake questionnaire",
+      "must_mention": ["intake questionnaire"],
+      "must_not_recommend": ["Gate 1", "Loop 2", "Loop 3", "Loop 4"]
+    }
+  },
+  {
+    "id": "03",
+    "name": "discovery-draft",
+    "fixture": "fixtures/03-discovery-draft",
+    "description": "Problem 001 is in Loop 1. The discovery output exists but is incomplete — Who and When/Where fields are not filled in.",
+    "expected": {
+      "must_identify_state": "discovery output in draft / mid-framing",
+      "must_recommend_action": "complete the incomplete fields in the discovery output",
+      "must_mention": ["incomplete", "discovery output"],
+      "must_not_recommend": ["Gate 1", "Loop 2", "design sprint", "validate"]
+    }
+  },
+  {
+    "id": "04",
+    "name": "discovery-unvalidated",
+    "fixture": "fixtures/04-discovery-unvalidated",
+    "description": "Problem 001 has a complete discovery output marked UNVALIDATED. A risk log entry exists. The validation checkpoint date (2026-05-15) has NOT yet been reached (today is 2026-04-04).",
+    "expected": {
+      "must_identify_state": "discovery output UNVALIDATED, checkpoint not yet reached",
+      "must_recommend_action": "proceed to Gate 1 — checkpoint has not been reached",
+      "must_mention": ["UNVALIDATED", "risk", "checkpoint"],
+      "must_not_recommend": ["validate now", "stop work", "discard"]
+    }
+  },
+  {
+    "id": "05",
+    "name": "discovery-unvalidated-checkpoint",
+    "fixture": "fixtures/05-discovery-unvalidated-checkpoint",
+    "description": "Problem 001 has a complete discovery output marked UNVALIDATED. A risk log entry exists. The validation checkpoint date (2026-03-01) HAS PASSED (today is 2026-04-04).",
+    "expected": {
+      "must_identify_state": "UNVALIDATED checkpoint has passed — decision required",
+      "must_recommend_action": "validate the assumption now or make an explicit risk decision",
+      "must_mention": ["checkpoint", "passed", "decision"],
+      "must_not_recommend": ["proceed to Gate 1 without addressing this", "ignore"]
+    }
+  },
+  {
+    "id": "06",
+    "name": "discovery-validated",
+    "fixture": "fixtures/06-discovery-validated",
+    "description": "Problem 001 has a fully complete and externally validated discovery output. Gate 1 sizing has not been reviewed/passed yet.",
+    "expected": {
+      "must_identify_state": "discovery complete and validated, ready for Gate 1",
+      "must_recommend_action": "review Gate 1 sizing — reach, impact, effort",
+      "must_mention": ["Gate 1", "reach", "impact", "effort"],
+      "must_not_recommend": ["more discovery", "validate again", "Loop 2 immediately without Gate 1"]
+    }
+  },
+  {
+    "id": "07",
+    "name": "gate1-passed",
+    "fixture": "fixtures/07-gate1-passed",
+    "description": "Problem 001's Gate 1 has been passed (recorded in decision log). No design output or Loop 2 work exists yet.",
+    "expected": {
+      "must_identify_state": "Gate 1 passed, entering Loop 2",
+      "must_recommend_action": "start Loop 2 with a Decision Frame",
+      "must_mention": ["Loop 2", "Decision Frame"],
+      "must_not_recommend": ["more discovery", "Gate 1", "validate problem again"]
+    }
+  },
+  {
+    "id": "08",
+    "name": "design-in-progress",
+    "fixture": "fixtures/08-design-in-progress",
+    "description": "Problem 001, solution 001.1. A design output exists but is incomplete — Rejected directions and Feedback instrumentation sections are empty.",
+    "expected": {
+      "must_identify_state": "design output in progress (mid-sprint)",
+      "must_recommend_action": "complete the missing sections in the design output",
+      "must_mention": ["incomplete", "design output"],
+      "must_not_recommend": ["handoff", "Loop 3", "start building"]
+    }
+  },
+  {
+    "id": "09",
+    "name": "design-complete",
+    "fixture": "fixtures/09-design-complete",
+    "description": "Problem 001, solution 001.1. The design output is complete — all sections are filled.",
+    "expected": {
+      "must_identify_state": "design output complete, ready for handoff",
+      "must_recommend_action": "check the handoff checklist and hand off to SDD tooling",
+      "must_mention": ["handoff", "SDD"],
+      "must_not_recommend": ["more design work", "Loop 1", "validate problem"]
+    }
+  },
+  {
+    "id": "10",
+    "name": "shipped-no-diagnosis",
+    "fixture": "fixtures/10-shipped-no-diagnosis",
+    "description": "Problem 001, solution 001.1 has shipped (implementation folder exists, STATUS.md says shipped). No Loop 4 / diagnosis work has started.",
+    "expected": {
+      "must_identify_state": "implementation shipped, Loop 4 / Diagnosis not started",
+      "must_recommend_action": "check outcome metrics against what was expected at Gate 1",
+      "must_mention": ["Loop 4", "outcome metrics"],
+      "must_not_recommend": ["Loop 1", "Loop 2", "Loop 3", "build more"]
+    }
+  },
+  {
+    "id": "11",
+    "name": "metrics-moved",
+    "fixture": "fixtures/11-metrics-moved",
+    "description": "Problem 001 shipped. Diagnosis notes say outcome metrics moved as expected. Problem is solved.",
+    "expected": {
+      "must_identify_state": "metrics moved — problem solved",
+      "must_recommend_action": "mark done, update Opportunity Map, archive if appropriate",
+      "must_mention": ["done", "Opportunity Map"],
+      "must_not_recommend": ["iterate", "redesign", "return to Loop 1"]
+    }
+  },
+  {
+    "id": "12",
+    "name": "metrics-flat",
+    "fixture": "fixtures/12-metrics-flat",
+    "description": "Problem 001 shipped. Diagnosis notes say outcome metrics are flat — the solution didn't move the needle.",
+    "expected": {
+      "must_identify_state": "metrics flat — solution did not work",
+      "must_recommend_action": "return to Loop 1 and reframe the problem",
+      "must_mention": ["Loop 1", "reframe"],
+      "must_not_recommend": ["iterate on the solution", "Loop 2", "build more"]
+    }
+  },
+  {
+    "id": "13",
+    "name": "concept-needs-iteration",
+    "fixture": "fixtures/13-concept-needs-iteration",
+    "description": "Problem 001 shipped. Diagnosis notes say the direction was right but the execution needs iteration — users understood the concept but specific interactions didn't work.",
+    "expected": {
+      "must_identify_state": "concept needs iteration — direction right, execution wrong",
+      "must_recommend_action": "return to Loop 2 with test data",
+      "must_mention": ["Loop 2", "test data"],
+      "must_not_recommend": ["Loop 1", "reframe problem", "mark done"]
+    }
+  }
+]
