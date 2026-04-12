@@ -16,9 +16,9 @@ Use this whenever you pick up work and aren't sure where you are or where to sta
 - **Discovery output — draft or in progress** → you're mid-framing. Go to Q6.
 - **Discovery output — complete, unvalidated** → you've taken a conscious risk. Check the risk log entry for the validation checkpoint. If the checkpoint has been reached, go to Q6. If not, go to Q9.
 - **Discovery output — complete, validated** → go to Q9.
-- **Design output — in progress** → you're mid-sprint. Go to Q10.
-- **Design output — complete** → go to Q12.
-- **Implementation folder exists** → check your SDD tooling for build status. If shipped, go to Q14. If in progress, continue in Loop 3.
+- **Design output — in progress** → you're mid-sprint. Go to Q11.
+- **Design output — complete** → go to Q13.
+- **Implementation folder exists** → check your SDD tooling for build status. If shipped, go to Q15. If in progress, continue in Loop 3.
 - **Not sure** → read the most recent file in the folder and the last Decision Log entry referencing this problem. Then come back and answer Q2 again.
 
 ---
@@ -84,32 +84,41 @@ Check `_index.md` and `_problems/`.
 
 ## Q9. How well do you understand the solution?
 
-- **No idea yet** → you need Loop 2. Start with a Decision Frame. **Go to Loop 2.**
-- **Have a candidate direction but untested** → enter Loop 2 with it as one concept to evaluate, not the answer. **Go to Loop 2.**
-- **Have a validated solution — tested with real users** → go to Q12.
-- **Solving a known, well-established pattern with no product-specific risk** → run a short stress-test: write the Decision Frame, AI challenge pass, document alternatives considered. Log the decision. Go to Q12.
+- **No idea yet** → you need Loop 2. Start with a Decision Frame. **Go to Q10.**
+- **Have a candidate direction but untested** → enter Loop 2 with it as one concept to evaluate, not the answer. **Go to Q10.**
+- **Have a validated solution — tested with real users** → go to Q13.
+- **Solving a known, well-established pattern with no product-specific risk** → run a short stress-test: write the Decision Frame, AI challenge pass, document alternatives considered. Log the decision. Go to Q13.
 
 ---
 
-## Q10. Where are you in the sprint?
+## Q10. Is your North Star filled in?
+
+Check `_radiators/north-star.md`. Is it populated with a real north star statement and at least one outcome metric — not placeholder text?
+
+- **Yes** → go to Q11.
+- **No** → fill it in before writing the Decision Frame. The frame's "success looks like" criterion must connect to an outcome metric. A Decision Frame written without a North Star produces success criteria that float free of what the product is actually trying to achieve. **Stop here until it's filled in.**
+
+---
+
+## Q11. Where are you in the sprint?
 
 - **Writing the Decision Frame** → continue. Once complete, move to concept generation.
 - **Generating or evaluating concepts** → continue. Once you have 2–3 directions, run the AI challenge pass and make the call.
 - **Concept chosen, building prototype** → continue. Once the prototype is ready, recruit users.
-- **Prototype built, not yet tested** → recruit minimum 3–5 real users and run sessions. Go to Q11 after testing.
+- **Prototype built, not yet tested** → recruit minimum 3–5 real users and run sessions. Go to Q12 after testing.
 
 ---
 
-## Q11. What did testing tell you?
+## Q12. What did testing tell you?
 
-- **Concept validated — users understood it and it addressed the problem** → complete the design output. Go to Q12.
-- **Concept partially validated — some things worked, some didn't** → iterate the design and retest, or document the uncertainty in the design output with confidence level noted. Go to Q12.
+- **Concept validated — users understood it and it addressed the problem** → complete the design output. Go to Q13.
+- **Concept partially validated — some things worked, some didn't** → iterate the design and retest, or document the uncertainty in the design output with confidence level noted. Go to Q13.
 - **Concept invalidated — wrong direction** → return to concept generation. The problem framing may also need revisiting. Go to Q9.
 - **Not enough signal** → run more sessions or recruit different participants. **Stop here.**
 
 ---
 
-## Q12. Is the design output complete?
+## Q13. Is the design output complete?
 
 Check all sections are filled, including:
 
@@ -120,12 +129,12 @@ Check all sections are filled, including:
 - [ ] Feedback instrumentation requirements (Section 8)
 - [ ] Open questions resolved
 
-- **Yes, all complete** → go to Q13.
+- **Yes, all complete** → go to Q14.
 - **No, gaps remain** → resolve them before proceeding. A spec built on an incomplete design output produces the wrong thing. **Stop here.**
 
 ---
 
-## Q13. Are you ready to build?
+## Q14. Are you ready to build?
 
 - [ ] Design output approved
 - [ ] Adapter Guide ready for your chosen SDD tooling
@@ -137,11 +146,11 @@ Not all checked → resolve the gaps first.
 
 ---
 
-## Q14. What happened after shipping?
+## Q15. What happened after shipping?
 
 - **Outcome metrics moved — problem solved** → mark done. Update the Opportunity Map. Archive if appropriate. **Done.**
 - **Metrics flat — solution didn't move the needle** → the problem framing may be wrong. Go to Q6 with fresh eyes. Don't iterate on a solution to the wrong problem.
-- **Concept needs iteration — direction right, execution wrong** → go to Q10 and re-enter the sprint with test data.
+- **Concept needs iteration — direction right, execution wrong** → go to Q11 and re-enter the sprint with test data.
 - **UNVALIDATED brief checkpoint reached** → return to Q8 and validate the problem assumption now, or make another explicit risk decision.
 - **Too early to tell** → define how long you'll monitor and what signal would trigger a decision. Come back when you have it. **Stop here.**
 
@@ -160,11 +169,12 @@ Not all checked → resolve the gaps first.
 | Problem framed, need validation | Q8 |
 | Problem validated, no solution yet | Q9 |
 | Have a candidate solution, untested | Q9 |
-| Mid-sprint | Q10 |
-| Post-test, deciding whether to proceed | Q11 |
-| Have a validated design output | Q12 |
-| Ready to build | Q13 |
-| Shipped, reviewing outcomes | Q14 |
+| Entering Loop 2, North Star not filled in | Q10 |
+| Mid-sprint | Q11 |
+| Post-test, deciding whether to proceed | Q12 |
+| Have a validated design output | Q13 |
+| Ready to build | Q14 |
+| Shipped, reviewing outcomes | Q15 |
 | Have a preformed solution, no problem | Q3 |
 | Returning to existing work | Q1 |
 | Not sure where you are | Q1 |
