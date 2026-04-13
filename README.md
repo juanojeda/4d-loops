@@ -24,6 +24,37 @@ Designed to be used by humans and AI agents alike. The artefact schemas are stru
 
 ---
 
+## Getting started
+
+From the root of your project, run:
+
+```bash
+curl -sSf https://raw.githubusercontent.com/juanojeda/4d-loops/main/scripts/install.sh | bash
+```
+
+This will:
+- Clone the 4D Loops framework into `.4d-loops-system/`
+- Copy the `/4d-onboard` Claude Code command into `.claude/commands/`
+- Create the `.loops/` folder structure with starter radiator files
+
+Then:
+
+```bash
+echo '.4d-loops-system/' >> .gitignore
+git add .loops/ .claude/commands/4d-onboard.md .gitignore
+git commit -m "chore: add 4D Loops"
+```
+
+Anyone else joining the project runs the same `curl` command to set up their local copy of the framework.
+
+**To update the framework later:**
+
+```bash
+bash .4d-loops-system/scripts/update.sh
+```
+
+---
+
 ## How it works
 
 Four loops, running in sequence for any given problem:
@@ -99,7 +130,7 @@ Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conv
 **System**
 * [ ] Agent onboarding prompt — single document an AI agent reads at session start to understand the workflow, its role, and which artefacts to look for
 * [ ] Loop 4 / Diagnosis — document the loop, define what signals to monitor and how to route findings back
-* [ ] Distribution mechanism — how does a team get the workflow files alongside their project? Options include copying files in, git submodule, or installable package. This affects how playbooks and templates are referenced from a project's `.loops/` folder. **Decision needed before playbooks can be linked from project artefacts.**
+* [x] Distribution mechanism — plain clone into `.4d-loops-system/` via install script
 
 **Diagrams**
 * [ ] Update both diagrams to reflect the 4D framing and Loop 4 as a named loop

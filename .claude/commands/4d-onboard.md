@@ -10,7 +10,7 @@ Tone: collaborative and direct. Ask one question at a time. Don't explain the wh
 
 Check whether `.loops/` exists in the current working directory.
 
-**If `.loops/` does NOT exist:** run `scripts/scaffold.sh` (path relative to wherever the 4D Loops files are installed — ask the user if unsure). Show the script output so the user can see what was created.
+**If `.loops/` does NOT exist:** run `.4d-loops-system/scripts/scaffold.sh`. Show the script output so the user can see what was created.
 
 **If `.loops/` exists:** read `.loops/_index.md`. Note any active items before moving on.
 
@@ -18,7 +18,7 @@ Check whether `.loops/` exists in the current working directory.
 
 ## Phase 2: Intake questionnaire
 
-Read `playbooks/intake-questionnaire.md`. That file is the source of truth for the questionnaire logic and routing — follow it exactly.
+Read `.4d-loops-system/playbooks/intake-questionnaire.md`. That file is the source of truth for the questionnaire logic and routing — follow it exactly.
 
 Work through it with the user one question at a time. When the questionnaire says **Stop here**, stop and explain why stopping is the right call before ending the session.
 
@@ -32,13 +32,13 @@ When the questionnaire routes to creating an artefact, read the relevant templat
 
 | Artefact | Template | Destination |
 |---|---|---|
-| Research question | `templates/template-discovery-question.md` | `.loops/_discovery/_questions/[YYYY-MM-DD]-[slug].md` |
-| Data entry | `templates/template-discovery-data.md` | `.loops/_discovery/_data/[YYYY-MM-DD]-[slug].md` |
-| Finding | `templates/template-discovery-finding.md` | `.loops/_discovery/_findings/[YYYY-MM-DD]-[slug].md` |
-| Insight | `templates/template-discovery-insight.md` | `.loops/_discovery/_insights/[YYYY-MM-DD]-[slug].md` |
-| Discovery output | `templates/template-discovery-output.md` | `.loops/_problems/[ID]-[slug]/discovery-output.md` |
-| Design output | `templates/template-design-output.md` | `.loops/_problems/[ID]-[slug]/[ID.N]-[slug]/design-output.md` |
+| Research question | `.4d-loops-system/templates/template-discovery-question.md` | `.loops/_discovery/_questions/[YYYY-MM-DD]-[slug].md` |
+| Data entry | `.4d-loops-system/templates/template-discovery-data.md` | `.loops/_discovery/_data/[YYYY-MM-DD]-[slug].md` |
+| Finding | `.4d-loops-system/templates/template-discovery-finding.md` | `.loops/_discovery/_findings/[YYYY-MM-DD]-[slug].md` |
+| Insight | `.4d-loops-system/templates/template-discovery-insight.md` | `.loops/_discovery/_insights/[YYYY-MM-DD]-[slug].md` |
+| Discovery output | `.4d-loops-system/templates/template-discovery-output.md` | `.loops/_problems/[ID]-[slug]/discovery-output.md` |
+| Design output | `.4d-loops-system/templates/template-design-output.md` | `.loops/_problems/[ID]-[slug]/[ID.N]-[slug]/design-output.md` |
 
-For the **discovery output**: read `templates/template-problem-hypothesis.md` as well — it defines what makes a strong problem hypothesis and should inform how you fill in that section. Before creating the file, find the next available ID from `_index.md` (three-digit: `001`, `002`, …), ask the user for a short slug, and add a row to `_index.md` after creating the file.
+For the **discovery output**: read `.4d-loops-system/templates/template-problem-hypothesis.md` as well — it defines what makes a strong problem hypothesis and should inform how you fill in that section. Before creating the file, find the next available ID from `_index.md` (three-digit: `001`, `002`, …), ask the user for a short slug, and add a row to `_index.md` after creating the file.
 
-For the **risk log entry**: read `templates/template-risk-log-entry.md`, then append the filled entry to `.loops/_radiators/decision-log.md` above the "Add new entries" line (newest first). Update the discovery output status to `UNVALIDATED`.
+For the **risk log entry**: read `.4d-loops-system/templates/template-risk-log-entry.md`, then append the filled entry to `.loops/_radiators/decision-log.md` above the "Add new entries" line (newest first). Update the discovery output status to `UNVALIDATED`.

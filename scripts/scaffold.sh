@@ -92,5 +92,5 @@ echo "Done. $created file(s) created, $skipped skipped."
 if [ "$created" -gt 0 ]; then
   echo ""
   echo "Next: run the intake questionnaire to find your starting point."
-  echo "  playbooks/intake-questionnaire.md"
+  echo "  .4d-loops-system/playbooks/intake-questionnaire.md"
 fi
