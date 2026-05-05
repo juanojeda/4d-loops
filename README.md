@@ -68,6 +68,8 @@ Identify and validate the best solution direction. What used to take five days n
 **Loop 3 — BYO SDD Build Cycle**
 Spec and build the validated solution. Format is team-defined — see the Adapter Guide for your chosen tooling. One requirement applies regardless: ship instrumented. All `[FEEDBACK]` acceptance criteria defined in the Design Output must be confirmed firing before ship.
 
+> **BMAD users:** run `/4d-to-bmad <path/to/design-output.md>` to transform a Design Output into a BMAD-compatible `project-brief.md` + `further-details.md`. The PM agent can consume the brief directly with no discovery conversation. See `adapters/bmad/` for mapping rules and spec.
+
 **Loop 4 — Diagnosis**
 *To be documented.* Use the instrumentation specified in Loops 2 and 3 to assess whether the change had the intended outcome, and route findings back to the relevant loop — either refining the solution (Loop 3), reconsidering the design direction (Loop 2), or surfacing a new or updated problem (Loop 1).
 
@@ -99,6 +101,11 @@ Entry points, validation gates, risk log paths, and the feedback loop are all do
 │   └── intake-questionnaire.md            ← where do I start? (self-serve intake)
 │   └── from-[x]-to-[y].md                 ← playbooks for next steps (see "what's still to come")
 │
+├── adapters/
+│   └── bmad/
+│       ├── adapter-spec.md                ← agent brief for building/maintaining the adapter
+│       └── adapter-guide.md               ← mapping rules (read by /4d-to-bmad at runtime)
+│
 └── templates/
     ├── radiator-north-star.md             ← North Star + Outcome Metrics
     ├── radiator-opportunity-map.md        ← Opportunity Map
@@ -116,7 +123,10 @@ Projects using 4D Loops maintain a `.loops/` folder in their own repo. See `conv
 **Templates**
 * [ ] Discovery Output — Loop 1 output; wraps the problem hypothesis with supporting evidence, sizing, metadata, and everything Loop 2 needs to begin
 * [ ] Decision Frame — used inside Loop 2, standalone reusable template
-* [ ] Adapter Guide — maps Design Output fields to your chosen spec tool; first example using Spec Kit
+
+**Adapters**
+* [x] BMAD — `/4d-to-bmad` slash command + mapping guide in `adapters/bmad/`
+* [ ] Additional adapters (other spec tools)
 
 **Playbooks**
 * [ ] From hunch to signal

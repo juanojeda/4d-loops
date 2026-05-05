@@ -5,8 +5,11 @@
 set -euo pipefail
 
 SYSTEM_DIR=".4d-loops-system"
-COMMAND_SRC="$SYSTEM_DIR/.claude/commands/4d-onboard.md"
-COMMAND_DEST=".claude/commands/4d-onboard.md"
+
+COMMANDS=(
+  "4d-onboard.md"
+  "4d-to-bmad.md"
+)
 
 if [ ! -d "$SYSTEM_DIR/.git" ]; then
   echo "Error: $SYSTEM_DIR/ not found. Run install first:"
@@ -22,11 +25,13 @@ echo ""
 git -C "$SYSTEM_DIR" pull --quiet
 echo "  updated  $SYSTEM_DIR/"
 
-# ── Refresh Claude Code command ────────────────────────────────────────────────
+# ── Refresh Claude Code commands ───────────────────────────────────────────────
 
-mkdir -p "$(dirname "$COMMAND_DEST")"
-cp "$COMMAND_SRC" "$COMMAND_DEST"
-echo "  updated  $COMMAND_DEST"
+mkdir -p ".claude/commands"
+for cmd in "${COMMANDS[@]}"; do
+  cp "$SYSTEM_DIR/.claude/commands/$cmd" ".claude/commands/$cmd"
+  echo "  updated  .claude/commands/$cmd"
+done
 
 echo ""
 echo "Done."

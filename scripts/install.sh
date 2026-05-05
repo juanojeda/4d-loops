@@ -7,8 +7,11 @@ set -euo pipefail
 
 REPO_URL="https://github.com/juanojeda/4d-loops.git"
 SYSTEM_DIR=".4d-loops-system"
-COMMAND_SRC="$SYSTEM_DIR/.claude/commands/4d-onboard.md"
-COMMAND_DEST=".claude/commands/4d-onboard.md"
+
+COMMANDS=(
+  "4d-onboard.md"
+  "4d-to-bmad.md"
+)
 
 echo "Installing 4D Loops..."
 echo ""
@@ -22,15 +25,19 @@ else
   git clone --quiet "$REPO_URL" "$SYSTEM_DIR"
 fi
 
-# ── Install Claude Code command ────────────────────────────────────────────────
+# ── Install Claude Code commands ───────────────────────────────────────────────
 
-if [ -e "$COMMAND_DEST" ]; then
-  echo "  skip  $COMMAND_DEST"
-else
-  mkdir -p "$(dirname "$COMMAND_DEST")"
-  cp "$COMMAND_SRC" "$COMMAND_DEST"
-  echo "  create  $COMMAND_DEST"
-fi
+mkdir -p ".claude/commands"
+for cmd in "${COMMANDS[@]}"; do
+  src="$SYSTEM_DIR/.claude/commands/$cmd"
+  dest=".claude/commands/$cmd"
+  if [ -e "$dest" ]; then
+    echo "  skip  $dest"
+  else
+    cp "$src" "$dest"
+    echo "  create  $dest"
+  fi
+done
 
 # ── Scaffold .loops/ ───────────────────────────────────────────────────────────
 
