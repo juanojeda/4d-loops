@@ -8,11 +8,6 @@ set -euo pipefail
 REPO_URL="https://github.com/juanojeda/4d-loops.git"
 SYSTEM_DIR=".4d-loops-system"
 
-COMMANDS=(
-  "4d-onboard.md"
-  "4d-to-bmad.md"
-)
-
 echo "Installing 4D Loops..."
 echo ""
 
@@ -28,13 +23,14 @@ fi
 # ── Install Claude Code commands ───────────────────────────────────────────────
 
 mkdir -p ".claude/commands"
-for cmd in "${COMMANDS[@]}"; do
-  src="$SYSTEM_DIR/.claude/commands/$cmd"
+for cmd_path in "$SYSTEM_DIR/.claude/commands/"*.md; do
+  [ -e "$cmd_path" ] || continue
+  cmd=$(basename "$cmd_path")
   dest=".claude/commands/$cmd"
   if [ -e "$dest" ]; then
     echo "  skip  $dest"
   else
-    cp "$src" "$dest"
+    cp "$cmd_path" "$dest"
     echo "  create  $dest"
   fi
 done

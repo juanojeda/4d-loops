@@ -6,11 +6,6 @@ set -euo pipefail
 
 SYSTEM_DIR=".4d-loops-system"
 
-COMMANDS=(
-  "4d-onboard.md"
-  "4d-to-bmad.md"
-)
-
 if [ ! -d "$SYSTEM_DIR/.git" ]; then
   echo "Error: $SYSTEM_DIR/ not found. Run install first:"
   echo "  curl -sSf https://raw.githubusercontent.com/juanojeda/4d-loops/main/scripts/install.sh | bash"
@@ -22,14 +17,18 @@ echo ""
 
 # ── Pull latest framework ──────────────────────────────────────────────────────
 
-git -C "$SYSTEM_DIR" pull --quiet
+if [ "${SKIP_PULL:-}" != "1" ]; then
+  git -C "$SYSTEM_DIR" pull --quiet
+fi
 echo "  updated  $SYSTEM_DIR/"
 
 # ── Refresh Claude Code commands ───────────────────────────────────────────────
 
 mkdir -p ".claude/commands"
-for cmd in "${COMMANDS[@]}"; do
-  cp "$SYSTEM_DIR/.claude/commands/$cmd" ".claude/commands/$cmd"
+for cmd_path in "$SYSTEM_DIR/.claude/commands/"*.md; do
+  [ -e "$cmd_path" ] || continue
+  cmd=$(basename "$cmd_path")
+  cp "$cmd_path" ".claude/commands/$cmd"
   echo "  updated  .claude/commands/$cmd"
 done
 
